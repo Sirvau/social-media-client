@@ -34,7 +34,7 @@ jobs:
       - name: Innstall the packages
         run: npm ci
       - name: Build the SASS
-        run: npm build
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
