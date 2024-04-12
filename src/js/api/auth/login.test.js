@@ -1,5 +1,8 @@
 import { login } from "./login";
-import { fetchMock, save } from "../../mocks/index.mocks.js";
+import { fetchMock } from "../../mocks/index.mocks.js";
+import { save } from "../../storage/index.js";
+
+jest.mock("../../storage/index.js");
 
 const profile = {
   name: "username",
@@ -17,7 +20,7 @@ describe("login", () => {
 
   it("logs in and saves token", async () => {
     await login(profile);
-    expect(save).toHaveBeenNthCalledWith(1, "token", JSON.stringify("token"));
+    expect(save).toHaveBeenNthCalledWith(1, "token", "token");
   });
 
   it("Throws an error when response is not ok", async () => {

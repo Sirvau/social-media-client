@@ -7,8 +7,3 @@ export const fetchMock = jest.fn(() =>
     statusCode: 200,
   }),
 );
-
-export const save = jest.fn();
-global.localStorage = {
-  setItem: save,
-};
