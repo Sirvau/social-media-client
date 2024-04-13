@@ -65,7 +65,7 @@ npm run test-e2e-cli
 
 ## Deployment
 
-![Deploy static content to Pages][https://sirvau.github.io/social-media-client/]
+Deployment of Workflow branch: https://sirvau.github.io/social-media-client/
 
 ## Authors
 
