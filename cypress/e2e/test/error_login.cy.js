@@ -5,7 +5,7 @@ import { invalidEmail, invalidPassword } from "../../support/test-user-data.js";
 describe("Cannot log in with invalid creditentials", () => {
   beforeEach(() => {
     cy.visit("/");
-    cy.wait(1000);
+    cy.wait(500);
   });
 
   it("Navigates from register to login-form", () => {
@@ -15,7 +15,7 @@ describe("Cannot log in with invalid creditentials", () => {
     cy.wait(1000);
   });
 
-  it("Fills out login-form", () => {
+  it("Fills out login-form, submit and displays error on screen", () => {
     cy.get('.modal-footer button[data-auth="login"]')
       .should("be.visible")
       .click();
@@ -24,5 +24,6 @@ describe("Cannot log in with invalid creditentials", () => {
     cy.get("#loginPassword").type(invalidPassword, { delay: 50 });
     cy.wait(500);
     cy.contains('button[type="submit"]', "Login").click();
+    cy.wait(500);
   });
 });
