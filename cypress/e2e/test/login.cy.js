@@ -1,6 +1,5 @@
 import { validEmail, validPassword } from "../../support/test-user-data.js";
 
-// from the CA requirements:
 // The user can log in with the login form with valid credentials
 
 describe("Logs in with valid creditentials", () => {
@@ -16,7 +15,7 @@ describe("Logs in with valid creditentials", () => {
     cy.wait(1000);
   });
 
-  it("Fills out login-form", () => {
+  it("Fills out login-form, submit and identifies token", () => {
     cy.get('.modal-footer button[data-auth="login"]')
       .should("be.visible")
       .click();
@@ -25,5 +24,9 @@ describe("Logs in with valid creditentials", () => {
     cy.get("#loginPassword").type(validPassword, { delay: 50 });
     cy.wait(500);
     cy.contains('button[type="submit"]', "Login").click();
+    cy.window().then((win) => {
+      cy.expect(win.localStorage.getItem("token")).to.be.null;
+    });
+    cy.wait(500);
   });
 });
