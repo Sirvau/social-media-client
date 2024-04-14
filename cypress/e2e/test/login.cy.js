@@ -29,4 +29,13 @@ describe("Logs in with valid creditentials", () => {
     });
     cy.wait(500);
   });
+
+  it("logs out", () => {
+    cy.get('.text-end button[data-auth="logout"]').should("be.visible").click();
+    cy.wait(1500);
+    cy.window().then((win) => {
+      cy.expect(win.localStorage.getItem("token")).to.be.null;
+    });
+    cy.wait(500);
+  });
 });
