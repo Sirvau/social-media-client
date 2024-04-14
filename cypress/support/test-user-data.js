@@ -1,7 +1,7 @@
 //User data for tests
 
-export const validEmail = "valid_email";
-export const validPassword = "valid_password";
+export const validEmail = "maja@noroff.no";
+export const validPassword = "majamajamaja";
 
-export const invalidEmail = "valid_user";
+export const invalidEmail = "invalid_user@example.com";
 export const invalidPassword = "invalid_password";
