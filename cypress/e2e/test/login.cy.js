@@ -1,6 +1,7 @@
 import { validEmail, validPassword } from "../../support/test-user-data.js";
 
 // The user can log in with the login form with valid credentials
+// The user can log out with the log out button
 
 describe("Logs in with valid creditentials", () => {
   beforeEach(() => {
