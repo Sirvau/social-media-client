@@ -10,7 +10,11 @@
       "files": ["**/*.test.js", "**/*.mock.js", "**/*.cy.js"],
       "env": { "jest": true, "cypress/globals": true },
       "plugins": ["jest", "cypress"],
-      "extends": ["plugin:jest/recommended", "plugin:cypress/recommended"]
+      "extends": ["plugin:jest/recommended", "plugin:cypress/recommended"],
+      "rules": {
+        "cypress/no-unnecessary-waiting": "off",
+        "no-unused-vars": "off"
+      }
     }
   ],
   "parserOptions": {
@@ -22,5 +26,9 @@
     "jest/prefer-expect-assertions": "off",
     "cypress/no-unnecessary-waiting": "off",
     "no-unused-vars": "off"
+  },
+  "globals": {
+    "cy": true,
+    "Cypress": true
   }
 }
